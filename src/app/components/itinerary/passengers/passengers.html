@@ -1,4 +1,41 @@
 <div>
-  <p> hello from passengers component</p>
-  <pre>{{$ctrl.passengers | json}} </pre>
-</div>
+  <div class="container 
+              col-sm-6
+              col-lg-4
+              col-xl-4
+              col-md-4">
+
+    <div class="row">
+
+      <div class="col-xs col-lg">
+        <img class='hero' src='img/passenger-img.jpg'>
+      </div>
+
+    </div>
+
+    <div class="row" ng-repeat='p in $ctrl.passengers'>
+
+      <div class="col-xs">
+        <img class='profile-pic' src='{{p.img}}'>
+      </div>
+
+
+        <div class='col-xs p-name'>
+          {{p.first_name}} {{p.last_name}}
+        </div>
+
+        <div class='p-info col-xs'>
+          <div class='col-xs'>
+           <span class="glyphicon glyphicon-scale"></span> {{p.weight}}
+          </div>
+          <div class='col-xs'>
+            DOB: {{p.DOB}}
+          </div>
+          <div class='text-left col-xs'>
+            docs
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>

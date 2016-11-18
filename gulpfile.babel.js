@@ -25,7 +25,7 @@ const paths = {
   dist: './dist/',
   scripts: [`${root}/app/**/*.js`, `!${root}/app/**/*.spec.js`],
   tests: `${root}/app/**/*.spec.js`,
-  styles: `${root}/sass/*.scss`,
+  styles: `${root}/sass/**/*`,
   templates: `${root}/app/**/*.html`,
   modules: [
     'angular/angular.js',
