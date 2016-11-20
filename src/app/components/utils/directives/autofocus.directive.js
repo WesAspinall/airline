@@ -19,5 +19,5 @@ function autofocus() {
 }
 
 angular
-  .module('components.itinerary')
+  .module('components.utils')
   .directive('autofocus', autofocus);

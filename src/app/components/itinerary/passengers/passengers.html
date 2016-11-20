@@ -1,48 +1,44 @@
 <div class='passengers'>
-  <h2>{{::$ctrl.title}} ({{$ctrl.passengers.length}})</h2>
+  <h2>
+    {{::$ctrl.title}} ({{$ctrl.passengers.length}})
+  </h2>
   <button class='btn btn-default' ng-click='editMode = true'>edit mode</button>
   <button class='btn btn-default' ng-click='editMode = false'>save</button>
   <div class="table-responsive">
     <table class="table table-hover">
       <tr>
         <th></th>
-        <th>Name</th>
-        <th>DOB</th>
-        <th>Weight</th>
-        <th>Docs</th>
+        <th ng-repeat='(key, value) in $ctrl.passengers[0]' 
+            ng-if='key != "lead" && key != "img" '>
+            {{key}}
+        </th>
       </tr>
       <tbody>
         <tr ng-repeat='p in $ctrl.passengers'>
-
           <td>
             <span class="glyphicon glyphicon-user" ng-if='!p.lead'></span>
             <span class="glyphicon glyphicon-star" ng-if='p.lead' ></span>
           </td>
-
           <!-- name column -->
-          <td ng-class='{danger: !p.name}'>
-            <span ng-if='!editMode'>{{p.name}}</span>
-            <input ng-if='editMode' placeholder='enter name' ng-model='p.name'>
+          <td ng-class='{danger: !p.Name}'>
+            <span ng-if='!editMode' edit-field='{{visibility}}'>{{p.Name}}</span>
+            <input ng-if='editMode' placeholder='enter Name' ng-model='p.name'>
           </td>
-
           <!-- DOB column -->
           <td ng-class='{danger: !p.DOB}'>
             <span ng-if='!editMode'>{{p.DOB}}</span>
             <input ng-if='editMode' ng-model='p.DOB'>
           </td>
-
           <!-- weight column -->
-          <td ng-class='{danger: !p.weight}'>
-            <span ng-if='!editMode'>{{p.weight}}</span>
-            <input ng-if='editMode' ng-model='p.weight'>
+          <td ng-class='{danger: !p.Weight}'>
+            <span ng-if='!editMode'>{{p.Weight}}</span>
+            <input ng-if='editMode' ng-model='p.Weight'>
           </td>
-
           <!-- docs column -->
-          <td ng-class='{danger: !p.docs}'>
+          <td ng-class='{danger: !p.Docs}'>
             <span class="glyphicon glyphicon-list-alt"></span> 
             <span class="glyphicon glyphicon-picture"></span>
           </td>
-
         </tr>
       </tbody>
     </table>

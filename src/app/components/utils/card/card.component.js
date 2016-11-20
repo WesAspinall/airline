@@ -4,6 +4,6 @@ var card = {
 };
 
 angular
-  .module('components.itinerary')
+  .module('components.utils')
   .component('card', card)
   ;

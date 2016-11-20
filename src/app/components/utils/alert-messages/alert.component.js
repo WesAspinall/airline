@@ -3,6 +3,6 @@ var alert = {
 };
 
 angular
-  .module('components.itinerary')
+  .module('components.utils')
   .component('alert', alert)
   ;

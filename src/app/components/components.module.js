@@ -1,6 +1,7 @@
 angular
   .module('components', [
 
-    'components.itinerary'
+    'components.itinerary',
+    'components.utils'
     
   ]);

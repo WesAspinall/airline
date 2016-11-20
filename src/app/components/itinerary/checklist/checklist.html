@@ -1,9 +1,10 @@
 <div class='checklist card'>
-  <ol class='breadcrumb'>
-      <li><span class="glyphicon glyphicon-check"></span>  <a href='#'>booking</a></li> 
-      <li><span class="glyphicon glyphicon-check"></span>  <a href='#'>validation</a></li>
-      <li class='active'>
-        <span class="glyphicon glyphicon-unchecked"></span> 
-        confirm</li>
+  <h2>{{::$ctrl.title}}</h2>
+  <ol>
+      <li ng-repeat='(item, val) in $ctrl.checklist'>
+        <span ng-if='val' class="glyphicon glyphicon-check"></span>
+        <span ng-if='!val' class="glyphicon glyphicon-unchecked"></span>
+        {{item}}
+      </li>
   </ol>
 </div>

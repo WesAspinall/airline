@@ -1,6 +1,12 @@
 var checklist = {
-
-  templateUrl: './checklist.html'
+  bindings: {
+    checklist: '<'
+  },
+  require: {
+    itinerary: '^^itinerary'
+  },
+  templateUrl: './checklist.html',
+  controller: 'ChecklistCtrl'
 };
 
 angular

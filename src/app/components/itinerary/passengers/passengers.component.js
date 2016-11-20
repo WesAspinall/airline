@@ -1,9 +1,12 @@
 var passengers = {
-
+  bindings: {
+    passengers: '<'
+  },
+  require: {
+    itinerary: '^^itinerary'
+  },
   templateUrl: './passengers.html',
-  controller: 'PassengersCtrl',
-  transclude: true
-
+  controller: 'PassengersCtrl'
 
 };
 

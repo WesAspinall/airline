@@ -1,7 +1,7 @@
 var itinerary = {
 
-  templateUrl: './itinerary.html'
-
+  templateUrl: './itinerary.html',
+  controller: 'ItineraryCtrl'
 };
 
 angular
