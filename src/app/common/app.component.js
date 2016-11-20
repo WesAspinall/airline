@@ -1,7 +1,6 @@
 var app = {
 
-  templateUrl: './app.html',
-  controller: 'AppCtrl'
+  templateUrl: './app.html'
 
 };
 
@@ -15,7 +14,7 @@ angular
     $stateProvider
       .state('app', {
         redirectTo: 'itinerary',
-        url: '/app',
+        url: '/',
         component: 'app'
       });
   });

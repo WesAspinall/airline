@@ -1,15 +1,14 @@
+@import 'vendor';
+@import 'base';
+@import 'components';
 
-$card-border-color: #DCDCDC;
-
-
-.hero {
-  width: 100%;
+//diamond
+body {
+  background-image: url('../img/diamond.png');
 }
 
-.profile-pic {
-  border-radius: 100em;
+.logo {
+  background-image: url('../img/logo.svg');
+  width: 200px;
 }
 
-// .p-name {
-//   margin: 1em;
-// }

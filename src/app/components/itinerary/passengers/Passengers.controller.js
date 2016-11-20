@@ -1,36 +1,42 @@
-var PassengersCtrl = function(ItineraryService) {
+var PassengersCtrl = function() {
 
   var ctrl = this;
   ctrl.title = 'Passengers';
-  ctrl.activate = activate;
-  activate();
+  ctrl.editMode = false;
+  ctrl.toggleEdit = toggleEdit;
 
-  function activate() {
-    console.log('hello from passengersCtrl');
+
+  function toggleEdit() {
+    if(ctrl.editMode === true) {
+      ctrl.editMode === false
+    } else if (ctrl.editMode === false) {
+      ctrl.editMode === true
+    }
+    console.log(ctrl.editMode)
   }
-
+  
 
   ctrl.passengers = [{
-    first_name: 'Dana',
-    last_name: 'White',
+    name: 'Dana White',
     img: 'img/dana.jpg',
     lead: true,
     weight: 170,
-    DOB: '01/11/1980'
+    DOB: '01/11/1980',
+    docs: true
   }, {
-    first_name: 'Conor',
-    last_name: 'McGregor',
+    name: 'Conor McGregor',
     img: 'img/conor.jpeg',
     lead: false,
-    weight: 154.8,
-    DOB: '04/27/1970'
+    weight: 155,
+    DOB: '04/27/1970',
+    docs: true
   }, {
-    first_name: 'missing',
-    last_name: 'missing',
-    img: 'https://placehold.it/80x80',
+    name: '',
+    img: 'img/khaled.png',
     lead: false,
-    weight: 'missing',
-    DOB: 'missing'
+    weight: '',
+    DOB: '',
+    docs: true
   }];
 
 

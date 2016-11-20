@@ -1,6 +1,10 @@
 var passengers = {
+
   templateUrl: './passengers.html',
-  controller: 'PassengersCtrl'
+  controller: 'PassengersCtrl',
+  transclude: true
+
+
 };
 
 angular

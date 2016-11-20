@@ -1,0 +1,22 @@
+//navbar
+
+.navbar-inverse {
+  .navbar-brand a {
+    margin-left: 0;
+  }
+  img {
+    width: 150px;
+    margin-left: 0;
+    padding: 10px;
+  }
+}
+
+#save {
+  float: right;
+}
+
+#save-itinerary {
+  font-family: 'Helvetica Neue', sans-serif;
+  color: white;
+  float: right;
+}

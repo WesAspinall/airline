@@ -1,6 +1,7 @@
 var itinerary = {
 
   templateUrl: './itinerary.html'
+
 };
 
 angular
@@ -11,7 +12,7 @@ angular
     $stateProvider
       .state('itinerary', {
         parent: 'app',
-        url: '^/',
+        url: '^/itinerary',
         component: 'itinerary'
       });
   })

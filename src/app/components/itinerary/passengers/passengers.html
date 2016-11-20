@@ -1,41 +1,50 @@
-<div>
-  <div class="container 
-              col-sm-6
-              col-lg-4
-              col-xl-4
-              col-md-4">
+<div class='passengers'>
+  <h2>{{::$ctrl.title}} ({{$ctrl.passengers.length}})</h2>
+  <button class='btn btn-default' ng-click='editMode = true'>edit mode</button>
+  <button class='btn btn-default' ng-click='editMode = false'>save</button>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Weight</th>
+        <th>Docs</th>
+      </tr>
+      <tbody>
+        <tr ng-repeat='p in $ctrl.passengers'>
 
-    <div class="row">
+          <td>
+            <span class="glyphicon glyphicon-user" ng-if='!p.lead'></span>
+            <span class="glyphicon glyphicon-star" ng-if='p.lead' ></span>
+          </td>
 
-      <div class="col-xs col-lg">
-        <img class='hero' src='img/passenger-img.jpg'>
-      </div>
+          <!-- name column -->
+          <td ng-class='{danger: !p.name}'>
+            <span ng-if='!editMode'>{{p.name}}</span>
+            <input ng-if='editMode' placeholder='enter name' ng-model='p.name'>
+          </td>
 
-    </div>
+          <!-- DOB column -->
+          <td ng-class='{danger: !p.DOB}'>
+            <span ng-if='!editMode'>{{p.DOB}}</span>
+            <input ng-if='editMode' ng-model='p.DOB'>
+          </td>
 
-    <div class="row" ng-repeat='p in $ctrl.passengers'>
+          <!-- weight column -->
+          <td ng-class='{danger: !p.weight}'>
+            <span ng-if='!editMode'>{{p.weight}}</span>
+            <input ng-if='editMode' ng-model='p.weight'>
+          </td>
 
-      <div class="col-xs">
-        <img class='profile-pic' src='{{p.img}}'>
-      </div>
+          <!-- docs column -->
+          <td ng-class='{danger: !p.docs}'>
+            <span class="glyphicon glyphicon-list-alt"></span> 
+            <span class="glyphicon glyphicon-picture"></span>
+          </td>
 
-
-        <div class='col-xs p-name'>
-          {{p.first_name}} {{p.last_name}}
-        </div>
-
-        <div class='p-info col-xs'>
-          <div class='col-xs'>
-           <span class="glyphicon glyphicon-scale"></span> {{p.weight}}
-          </div>
-          <div class='col-xs'>
-            DOB: {{p.DOB}}
-          </div>
-          <div class='text-left col-xs'>
-            docs
-          </div>
-        </div>
-
-      </div>
-    </div>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>
