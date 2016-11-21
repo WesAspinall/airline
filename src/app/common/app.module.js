@@ -3,7 +3,7 @@ angular
     'ui.router',
     'angular-loading-bar',
     'ui.bootstrap',
-    'ui.bootstrap.alert'
+    'ui.bootstrap.tooltip'
   ])
   .run(function($transitions, cfpLoadingBar) {
     $transitions.onStart({}, cfpLoadingBar.start);

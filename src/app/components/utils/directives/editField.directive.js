@@ -1,14 +1,21 @@
-function editField() {
+function editField($parse) {
 
-  return  {
+  return {
     restrict: 'A',
-    scope: {},
-    link: function ($scope, $element, $attrs) {
- 
+    scope: {
+
+    },
+    require: '^^passengers',
+    link: function($scope, $element, $attrs, $ctrl, $event) {
+
+
+     $element.on('click', function() {
+       
+       console.log($scope);
+     })
 
     }
   }
-
 }
 
 angular

@@ -1,9 +1,11 @@
 <div class='accordion'>
   <accordion>
+
+    <!-- accordion title -->
     <ul class='title'>
         <li>
-          <h2>{{$ctrl.title}} 
-          <span class='badge incomplete'>2</span></h2>
+          <h2>{{$ctrl.title}} ({{$ctrl.passengers.length}})
+          <span class='badge incomplete'>incomplete</span></h2>
         </li>
         <li class='text-right'>
           <span class="glyphicon glyphicon-chevron-right"></span>
@@ -12,39 +14,75 @@
 
     <div class="content table-responsive">
       <table class="table table-hover">
+        <form name='passenger-form' edit-field>
+        <!-- table header -->
         <tr>
           <th ng-repeat='(key, value) in $ctrl.passengers[0]' 
               ng-if='key != "lead" && key != "img" '>
               {{key}}
           </th>
+          <th ng-if='editMode'>Delete</th>
         </tr>
         <tbody>
           <tr ng-repeat='p in $ctrl.passengers'>
       
             <!-- name column -->
             <td ng-class='{danger: !p.Name}'>
+
               <span ng-if='!editMode'>{{p.Name}}</span>
-              <input ng-if='editMode' placeholder='Enter Name' ng-model='p.Name'>
+
+              <span 
+                tooltip-placement="top" 
+                uib-tooltip="lead passenger" 
+                ng-if='p.lead && !editMode' 
+                class='glyphicon glyphicon-star'>
+              </span>
+          
+              <input ng-show='editMode' placeholder='Enter Name' ng-model='p.Name'>
             </td>
+
             <!-- DOB column -->
             <td ng-class='{danger: !p.DOB}'>
               <span ng-if='!editMode'>{{p.DOB}}</span>
-              <input ng-if='editMode' placeholder='Enter DOB' ng-model='p.DOB'>
+              <input ng-show='editMode' placeholder='Enter DOB' ng-model='p.DOB'>
             </td>
+
             <!-- weight column -->
             <td ng-class='{danger: !p.Weight}'>
               <span ng-if='!editMode'>{{p.Weight}}</span>
-              <input ng-if='editMode' placeholder='Enter Weight' ng-model='p.Weight'>
+
+              <input required='required' name='weight' ng-show='editMode' placeholder='Enter Weight' ng-model='p.Weight'>
             </td>
+
             <!-- docs column -->
             <td ng-class='{danger: !p.Docs}'>
               <span class="glyphicon glyphicon-list-alt"></span> 
               <span class="glyphicon glyphicon-picture"></span>
             </td>
+            <td ng-if='editMode'>
+              <span class="glyphicon glyphicon-trash"></span> 
+            </td>
           </tr>
         </tbody>
+    </form>
       </table>
-    </div>
+        <div class='dash'>
+          <ul>
+            <li>
+              <button><span class="glyphicon glyphicon-plus"></span> add passenger</button></li>
 
+            <li ng-show='editMode = false'>
+              <button>
+                <span ng-click='editMode ? false: true' class="glyphicon glyphicon-cog"></span> 
+                edit
+              </button>
+            </li>
+
+            <li ng-show='editMode'>
+              <button class='btn' ng-click='editMode = false'><span class="glyphicon glyphicon-ok"></span>  save</button>
+            </li>
+          </ul>
+        </div>
+    </div>
   </accordion>
 </div>

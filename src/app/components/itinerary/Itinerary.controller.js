@@ -1,4 +1,6 @@
 var ItineraryCtrl = function() {
+  var ctrl = this;
+
   this.data = {
     "passengers": [{
       'Name': 'Dana White',

@@ -7,13 +7,9 @@
     </ul>
 
     <div class='content'>
-      <ol>
-        <li ng-repeat='(item, val) in $ctrl.checklist'>
-          <span ng-if='val' class="glyphicon glyphicon-check"></span>
-          <span ng-if='!val' class="glyphicon glyphicon-unchecked"></span>
-          {{item}}
-        </li>
-      </ol>
+      <pre>{{$ctrl.flight | json }}</pre>
+
+      <pre>{{$ctrl.aircraft | json }}</pre>
     </div> 
 
   </accordion>

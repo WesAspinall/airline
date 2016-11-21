@@ -1,7 +1,7 @@
-var ChecklistCtrl = function($scope) {
+var FlightCtrl = function($scope) {
 
   var ctrl = this;
-  ctrl.title = 'Checklist';
+  ctrl.title = 'Flight';
   ctrl.isHidden = true;
 
 
@@ -10,7 +10,8 @@ var ChecklistCtrl = function($scope) {
   }
 
   this.$onInit = function() {
-    ctrl.checklist = this.itinerary.data.checklist;
+    ctrl.flight = this.itinerary.data.flight;
+    ctrl.aircraft = this.itinerary.data.aircraft;
   }
   
 };
@@ -18,4 +19,4 @@ var ChecklistCtrl = function($scope) {
 
 angular
   .module('components.itinerary')
-  .controller('ChecklistCtrl', ChecklistCtrl);
+  .controller('FlightCtrl', FlightCtrl);

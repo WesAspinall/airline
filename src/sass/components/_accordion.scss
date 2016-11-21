@@ -1,7 +1,7 @@
 
 .accordion {
   font-family: 'Helvetica Neue', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
   margin: .5em;
   max-width: 600px;
   border-radius: .2em;
@@ -9,9 +9,13 @@
   box-shadow: 1px 2px 5px grey;
 
   ul {
+    background-color: white;
+    border-radius: .2em;
+    margin: 0;
     list-style-type: none;
     padding: 0;
     li {
+      padding: 0 1em;
       display: inline-block;
       width: 50%;
     }
@@ -24,9 +28,7 @@
     li {
       display: inline-block;
       padding: .6em;
-      a {
-        color: black;
-      }
+    
     }
   }
 
@@ -40,4 +42,16 @@
 
 }
 
+.panel-heading {
+  padding: .5em;
+  border: 1px solid #222;
+}
 
+.notes {
+  ul {
+    li {
+      width: 100%;
+      display: block;
+    }
+  }
+}

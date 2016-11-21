@@ -1,0 +1,23 @@
+<div class='accordion'>
+  <accordion>
+
+    <ul class='title'>
+      <li><h2>{{$ctrl.title}} ({{$ctrl.notes.length}})</h2></li>
+      <li class='text-right'><span class="glyphicon glyphicon-chevron-right"></span></li>
+    </ul>
+
+    <div class='content notes'>
+      <div ng-repeat='note in $ctrl.notes'>
+        <ul>
+          <li><em>from: {{note.from}} on {{note.date | date}}</em></li>
+          <li >{{note.text}}</li>
+        </ul>
+        <hr>
+      </div>
+      <div class="text-right">
+        <span class="glyphicon glyphicon-plus"></span> add note
+      </div>
+    </div> 
+  </accordion>
+</div>  
+  
