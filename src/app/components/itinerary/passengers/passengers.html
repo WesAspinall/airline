@@ -1,46 +1,50 @@
-<div class='passengers'>
-  <h2>
-    {{::$ctrl.title}} ({{$ctrl.passengers.length}})
-  </h2>
-  <button class='btn btn-default' ng-click='editMode = true'>edit mode</button>
-  <button class='btn btn-default' ng-click='editMode = false'>save</button>
-  <div class="table-responsive">
-    <table class="table table-hover">
-      <tr>
-        <th></th>
-        <th ng-repeat='(key, value) in $ctrl.passengers[0]' 
-            ng-if='key != "lead" && key != "img" '>
-            {{key}}
-        </th>
-      </tr>
-      <tbody>
-        <tr ng-repeat='p in $ctrl.passengers'>
-          <td>
-            <span class="glyphicon glyphicon-user" ng-if='!p.lead'></span>
-            <span class="glyphicon glyphicon-star" ng-if='p.lead' ></span>
-          </td>
-          <!-- name column -->
-          <td ng-class='{danger: !p.Name}'>
-            <span ng-if='!editMode' edit-field='{{visibility}}'>{{p.Name}}</span>
-            <input ng-if='editMode' placeholder='enter Name' ng-model='p.name'>
-          </td>
-          <!-- DOB column -->
-          <td ng-class='{danger: !p.DOB}'>
-            <span ng-if='!editMode'>{{p.DOB}}</span>
-            <input ng-if='editMode' ng-model='p.DOB'>
-          </td>
-          <!-- weight column -->
-          <td ng-class='{danger: !p.Weight}'>
-            <span ng-if='!editMode'>{{p.Weight}}</span>
-            <input ng-if='editMode' ng-model='p.Weight'>
-          </td>
-          <!-- docs column -->
-          <td ng-class='{danger: !p.Docs}'>
-            <span class="glyphicon glyphicon-list-alt"></span> 
-            <span class="glyphicon glyphicon-picture"></span>
-          </td>
+<div class='accordion'>
+  <accordion>
+    <ul class='title'>
+        <li>
+          <h2>{{$ctrl.title}} 
+          <span class='badge incomplete'>2</span></h2>
+        </li>
+        <li class='text-right'>
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </li>
+    </ul>
+
+    <div class="content table-responsive">
+      <table class="table table-hover">
+        <tr>
+          <th ng-repeat='(key, value) in $ctrl.passengers[0]' 
+              ng-if='key != "lead" && key != "img" '>
+              {{key}}
+          </th>
         </tr>
-      </tbody>
-    </table>
-  </div>
+        <tbody>
+          <tr ng-repeat='p in $ctrl.passengers'>
+      
+            <!-- name column -->
+            <td ng-class='{danger: !p.Name}'>
+              <span ng-if='!editMode'>{{p.Name}}</span>
+              <input ng-if='editMode' placeholder='Enter Name' ng-model='p.Name'>
+            </td>
+            <!-- DOB column -->
+            <td ng-class='{danger: !p.DOB}'>
+              <span ng-if='!editMode'>{{p.DOB}}</span>
+              <input ng-if='editMode' placeholder='Enter DOB' ng-model='p.DOB'>
+            </td>
+            <!-- weight column -->
+            <td ng-class='{danger: !p.Weight}'>
+              <span ng-if='!editMode'>{{p.Weight}}</span>
+              <input ng-if='editMode' placeholder='Enter Weight' ng-model='p.Weight'>
+            </td>
+            <!-- docs column -->
+            <td ng-class='{danger: !p.Docs}'>
+              <span class="glyphicon glyphicon-list-alt"></span> 
+              <span class="glyphicon glyphicon-picture"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </accordion>
 </div>

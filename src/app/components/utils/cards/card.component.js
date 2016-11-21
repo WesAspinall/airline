@@ -1,6 +1,9 @@
 var card = {
+
   templateUrl: './card.html',
-  transclude: true
+  transclude: true,
+  controller: 'CardCtrl'
+
 };
 
 angular

@@ -1,10 +1,21 @@
-<div class='checklist card'>
-  <h2>{{::$ctrl.title}}</h2>
-  <ol>
-      <li ng-repeat='(item, val) in $ctrl.checklist'>
-        <span ng-if='val' class="glyphicon glyphicon-check"></span>
-        <span ng-if='!val' class="glyphicon glyphicon-unchecked"></span>
-        {{item}}
-      </li>
-  </ol>
-</div>
+<div class='accordion'>
+  <accordion>
+
+    <ul class='title'>
+      <li><h2>{{$ctrl.title}} <span class='badge incomplete'>2</span></h2></li>
+      <li class='text-right'><span class="glyphicon glyphicon-chevron-right"></span></li>
+    </ul>
+
+    <div class='content'>
+      <ol>
+        <li ng-repeat='(item, val) in $ctrl.checklist'>
+          <span ng-if='val' class="glyphicon glyphicon-check"></span>
+          <span ng-if='!val' class="glyphicon glyphicon-unchecked"></span>
+          {{item}}
+        </li>
+      </ol>
+    </div> 
+     
+  </accordion>
+</div>  
+  

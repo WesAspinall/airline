@@ -1,2 +1,3 @@
 angular
-  .module('components.utils', ['ui.bootstrap']);
+  .module('components.utils', ['ui.bootstrap','ui.bootstrap.accordion',
+    'ui.bootstrap.collapse']);
