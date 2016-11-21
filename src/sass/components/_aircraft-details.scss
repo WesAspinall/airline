@@ -1,0 +1,42 @@
+.aircraft-details {
+  height: 200px;
+   border: 1px solid #ddd;
+  border-radius: 3px;
+  overflow: hidden;
+  ul {
+    width: 100%;
+    margin-bottom: 1em;
+
+    li {
+      padding: .3em;
+      display: block;
+      input {
+        width: 100%;
+      }
+    }
+  }
+ 
+}
+
+.crew {
+  display: block;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 1em;
+  h3 {
+    margin-top: 5px;
+  }
+  ul {
+    margin-bottom: 1em;
+  }
+}
+
+.aircraft{
+  width: 50%;
+  float: left;
+}
+
+.map {
+  width: 50%;
+  float: right;
+}

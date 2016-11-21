@@ -6,6 +6,7 @@ var MessagesCtrl = function() {
   this.$onInit = function() {
     ctrl.messages = this.itinerary.data.messages;
   }
+  
 };
 
 angular

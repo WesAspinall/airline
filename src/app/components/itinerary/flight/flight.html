@@ -1,12 +1,36 @@
 <div class='accordion'>
   <accordion>
-
     <ul class='title'>
-      <li><h2>{{$ctrl.title}} <span class='badge incomplete'>incomplete</span></h2></li>
+      <li><h2>{{$ctrl.title}} 
+        <span class='incomplete'>incomplete</span></h2></li>
       <li class='text-right'><span class="glyphicon glyphicon-chevron-right"></span></li>
     </ul>
 
     <div class='content'>
+
+      <div class='flight'></div>
+
+      <div class="aircraft-details">
+        <div class='aircraft'>
+          <ul>
+            <li><label>Tail # <input></label></li>
+            <li><label>Model <input></label></li>
+            <li><a href='#' confirm-click='$ctrl.cancelLeg()' ng-confirm-click><span class='incomplete'><span class="glyphicon glyphicon-remove"></span> cancel leg</span></a></li>
+          </ul>
+        </div>
+        <div class='map'>
+          <img src='http://placehold.it/300x200'>
+
+        </div>
+      </div>
+
+      <div class='crew'>
+        <h3>Crew</h3>
+         <ul>
+          <li>Pilot in command: <input> <a>edit</a></li>
+          <li>Second in command: <input> <a>edit</a></li>
+        </ul>
+      </div>
       <pre>{{$ctrl.flight | json }}</pre>
 
       <pre>{{$ctrl.aircraft | json }}</pre>

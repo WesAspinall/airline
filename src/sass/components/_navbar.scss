@@ -8,7 +8,22 @@
     width: 100%;
     max-width: 180px;
     margin-left: 0;
-    padding: 10px;
+    padding: 1em;
   }
+}
+
+.save:hover {
+  color: white;
+}
+
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
+.navbar-toggle {
+    z-index:3;
 }
 

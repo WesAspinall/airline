@@ -1,12 +1,12 @@
-var FlightCtrl = function($scope) {
+var FlightCtrl = function() {
 
   var ctrl = this;
   ctrl.title = 'Flight';
   ctrl.isHidden = true;
 
 
-  ctrl.toggle = function() {
-   ctrl.isHidden = ctrl.isHidden ? false :  true;
+  ctrl.cancelLeg = function() {
+   alert('canceled');
   }
 
   this.$onInit = function() {

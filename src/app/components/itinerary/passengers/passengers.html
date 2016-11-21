@@ -5,7 +5,13 @@
     <ul class='title'>
         <li>
           <h2>{{$ctrl.title}} ({{$ctrl.passengers.length}})
-          <span class='badge incomplete'>incomplete</span></h2>
+          <span ng-show='!$ctrl.complete' class='incomplete'>
+            incomplete
+          </span>
+           <span ng-show='$ctrl.complete' class='complete'>
+            complete
+          </span>
+        </h2>
         </li>
         <li class='text-right'>
           <span class="glyphicon glyphicon-chevron-right"></span>
@@ -17,41 +23,47 @@
         <form name='passenger-form' edit-field>
         <!-- table header -->
         <tr>
+          <th ng-if='$ctrl.editMode'>Delete</th>
           <th ng-repeat='(key, value) in $ctrl.passengers[0]' 
               ng-if='key != "lead" && key != "img" '>
               {{key}}
           </th>
-          <th ng-if='editMode'>Delete</th>
         </tr>
         <tbody>
           <tr ng-repeat='p in $ctrl.passengers'>
-      
+             <td ng-if='$ctrl.editMode'>
+              <span 
+                ng-click='$ctrl.removePassenger($index);' 
+              class="glyphicon glyphicon-trash" 
+              >
+              </span> 
+            </td>
             <!-- name column -->
             <td ng-class='{danger: !p.Name}'>
 
-              <span ng-if='!editMode'>{{p.Name}}</span>
+              <span ng-if='!$ctrl.editMode'>{{p.Name}}</span>
 
               <span 
                 tooltip-placement="top" 
                 uib-tooltip="lead passenger" 
-                ng-if='p.lead && !editMode' 
+                ng-if='p.lead && !$ctrl.editMode' 
                 class='glyphicon glyphicon-star'>
               </span>
           
-              <input ng-show='editMode' placeholder='Enter Name' ng-model='p.Name'>
+              <input ng-show='$ctrl.editMode' placeholder='Enter Name' ng-model='p.Name'>
             </td>
 
             <!-- DOB column -->
             <td ng-class='{danger: !p.DOB}'>
-              <span ng-if='!editMode'>{{p.DOB}}</span>
-              <input ng-show='editMode' placeholder='Enter DOB' ng-model='p.DOB'>
+              <span ng-if='!$ctrl.editMode'>{{p.DOB}}</span>
+              <input ng-show='$ctrl.editMode' placeholder='dd/mm/yyyy' ng-model='p.DOB'>
             </td>
 
             <!-- weight column -->
             <td ng-class='{danger: !p.Weight}'>
-              <span ng-if='!editMode'>{{p.Weight}}</span>
+              <span ng-if='!$ctrl.editMode'>{{p.Weight}}</span>
 
-              <input required='required' name='weight' ng-show='editMode' placeholder='Enter Weight' ng-model='p.Weight'>
+              <input required='required' name='weight' ng-show='$ctrl.editMode' placeholder='Enter Weight' ng-model='p.Weight'>
             </td>
 
             <!-- docs column -->
@@ -59,30 +71,38 @@
               <span class="glyphicon glyphicon-list-alt"></span> 
               <span class="glyphicon glyphicon-picture"></span>
             </td>
-            <td ng-if='editMode'>
-              <span class="glyphicon glyphicon-trash"></span> 
-            </td>
+           
           </tr>
         </tbody>
     </form>
       </table>
+
         <div class='dash'>
           <ul>
+       
+             <span ng-if='$ctrl.editMode' ng-click='$ctrl.addPassenger();' class="glyphicon glyphicon-plus"></span> <span ng-if='$ctrl.editMode'>add passenger</span>
+           
             <li>
-              <button><span class="glyphicon glyphicon-plus"></span> add passenger</button></li>
+                <span 
+                  ng-hide='$ctrl.editMode' 
+                  ng-click='$ctrl.editClick();' 
+                  class="glyphicon glyphicon-cog">
+                </span> 
+                <span ng-hide='$ctrl.editMode'> edit
+                </span>
 
-            <li ng-show='editMode = false'>
-              <button>
-                <span ng-click='editMode ? false: true' class="glyphicon glyphicon-cog"></span> 
-                edit
-              </button>
+                <span 
+                  ng-hide='!$ctrl.editMode' 
+                  ng-click='$ctrl.editClick();' class="glyphicon glyphicon-ok">
+                </span>
+                <span ng-hide='!$ctrl.editMode'>save
+                </span>
             </li>
 
-            <li ng-show='editMode'>
-              <button class='btn' ng-click='editMode = false'><span class="glyphicon glyphicon-ok"></span>  save</button>
-            </li>
           </ul>
         </div>
+
+
     </div>
   </accordion>
 </div>
